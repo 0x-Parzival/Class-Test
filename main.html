@@ -1,0 +1,35 @@
+<html lang="en">  
+<head>  
+    <title>Password Validation Form</title>  
+    <script>  
+        function validateForm(event) {  
+            event.preventDefault();  
+            const password = document.getElementById('password').value;  
+            const passwordPattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$/; 
+            
+            if (passwordPattern.test(password)) {  
+                
+                window.location.href = "form.html"; 
+            } else {  
+                alert('Password must be at least 6 characters long, and include at least one number, one uppercase letter and one lowercase letter.');  
+            }  
+        }  
+
+        function resetForm() {  
+            document.getElementById('passwordForm').reset();  
+        }  
+    </script>  
+</head>  
+<body>  
+    <form id="passwordForm" onsubmit="validateForm(event)">  
+        <label for="login"> Login:</label>
+        <input type="Login" required>
+        <br><br>
+        <label for="password">Password:</label>  
+        <input type="password" id="password" name="password" required>  
+        <br><br>  
+        <button type="submit">Submit</button>  
+        <button type="button" onclick="resetForm()">Reset</button>  
+    </form>  
+</body>  
+</html>
